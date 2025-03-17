@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button with Progress Bar</title>
+    <style>
+        /* Basic styling for the button */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #8AC2FF;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .button-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #8AC2FF;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .button:hover {
+            background-color: #9DD1FC;
+        }
+
+        /* Progress bar container */
+        .progress-container {
+            width: 100%;
+            background-color: #9DD1FC;
+            border-radius: 5px;
+            margin-top: 20px;
+            height: 30px;
+        }
+
+        /* Progress bar itself */
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #8AC2FF;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+            line-height: 30px; /* Vertically center text */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom button structure -->
+    <div class="button" id="customButton">Click to let volume be random<span class="button-border"></span></div>
+
+    <br>
+
+    <br>
+
+    <p style = "color:#8AC2FF;">Volume:</p>
+
+    <br>
+
+    <!-- Progress bar container -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar">0%</div>
+    </div>
+
+    <script>
+        // JavaScript to handle the button click and update the progress bar
+        let percentage = 0;  // Initial percentage
+
+        document.getElementById("customButton").addEventListener("click", function() {
+            if (percentage < 100) {
+                let percentage = Math.round(Math. random() * (100 - 1) + 1);  // Increase by 10% each time
+                updateProgressBar(percentage);
+            } else {
+                alert("Progress is already at 100%!");
+            }
+        });
+
+        function updateProgressBar(percent) {
+            const progressBar = document.getElementById("progressBar");
+            progressBar.style.width = percent + "%";  // Update width of progress bar
+            progressBar.textContent = percent + "%";  // Update text inside the progress bar
+        }
+    </script>
+
+</body>
+</html>
