@@ -1,1 +1,1 @@
-Just a bad yolume picker. (Doesn't actually change you volume)
+Just a bad volume picker. (Doesn't actually change you volume)
